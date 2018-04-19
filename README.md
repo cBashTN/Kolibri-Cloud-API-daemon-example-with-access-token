@@ -4,9 +4,10 @@ This example code shows basic access to the KOLIBRI Cloud API using a access tok
 The API's specification can be found here: https://api.kolibricloud.ch/swagger/index.html?url=/swagger/v1/swagger.json
 
 Endpoints interest are:
-| Endpoint        | use case           |  
-| ------------- |:-------------:| 
-| ```GET /v1/Devices```    | Gets information of all devices | 
+
+| Endpoint      | Use to       |  
+| ------------- | :----------- | 
+| ```GET /v1/Devices```      | Gets information of all devices | 
 | ```GET /v1/Devices/{deviceId}```     | Gets information of a specific device  | 
 | ```GET /v1/Measurements``` | Gets a list of measurements composed of a value and a UTC datetime | 
 
