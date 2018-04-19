@@ -1,6 +1,14 @@
 ## KOLIBRI Cloud API daemon example with access token
 ##### Purpose:
-This example code shows basic access to the KOLIBRI Cloud API which is specification can be seen here: https://api.kolibricloud.ch/swagger/index.html?url=/swagger/v1/swagger.json
+This example code shows basic access to the KOLIBRI Cloud API using a access token from KELLER to gather measurement data from the KOLIBRI Cloud. 
+The API's specification can be found here: https://api.kolibricloud.ch/swagger/index.html?url=/swagger/v1/swagger.json
+
+Endpoints interest are:
+| Endpoint        | use case           |  
+| ------------- |:-------------:| 
+| ```GET /v1/Devices```    | Gets information of all devices | 
+| ```GET /v1/Devices/{deviceId}```     | Gets information of a specific device  | 
+| ```GET /v1/Measurements``` | Gets a list of measurements composed of a value and a UTC datetime | 
 
 ##### Needs:
 + **Python 2.7**  (Untested with Python 3.x)
@@ -12,9 +20,11 @@ This example code shows basic access to the KOLIBRI Cloud API which is specifica
  Please ask KELLER AG to provide a valid parameters
 
 ##### Notes:
- DateTime format from the API are always in UTC
- Pressure values from the API are always in bar
- Temperature values from the API are always in °C
+DateTime format from the API are always in UTC
+Pressure values from the API are always in bar
+Temperature values from the API are always in °C
+It is not possible to delete measurement data with the API
+If you want to try out the API with [Swagger](https://api.kolibricloud.ch/swagger/index.html?url=/swagger/v1/swagger.json) please us the dark green [Authorize] button and a valid bearer token. You can get a valid bearer token when logged in on www.kolibricloud.ch under [User Settings]
 
 If you plan run this as a server script to store measurement data from the KOLIBRI Cloud API the following procedure is recommended:
 + Decide for a time span to gather date: eg. Every 24h
@@ -26,3 +36,6 @@ If you plan run this as a server script to store measurement data from the KOLIB
   - use ```get_data_measurements_from_timespan()``` with he timespan of ~24
   - and store the data into a DB
   - you might check first if the measuremenent(value+timestamp) is not already stored
+
+Please create github issues for feature wishes or problems 
+Or contact engineering@keller-druck.ch
