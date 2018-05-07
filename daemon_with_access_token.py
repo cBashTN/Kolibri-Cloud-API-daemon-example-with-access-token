@@ -136,9 +136,9 @@ print("----------------------------------------------------"+"\n")
 #print('Last measurement time was: '+data2['lastMeasurementTransmissionDateTime'])
 
 
-# data3 is the JSON data from device "my_device" of the channel with the id 2 which is P1 in [bar] of the last 12 hours
-measurementDefinitionId = 2 #  is P1 / See get_measurementDefinitionId_LookUpTable()
-data3 = get_data_measurements_from_timespan(12, measurementDefinitionId, my_device, bearer_token, ACCESS_TOKEN)
+# data3 is the JSON data from device "my_device" of the channel with the id 8 which is TBaro in [°C] of the last 6 hours
+measurementDefinitionId = 8 #  is TBaro / See get_measurementDefinitionId_LookUpTable()
+data3 = get_data_measurements_from_timespan(6, measurementDefinitionId, my_device, bearer_token, ACCESS_TOKEN)
 measurementDefinitionIds = get_measurementDefinitionId_LookUpTable()
 print("Measurements of " + measurementDefinitionIds[measurementDefinitionId]+" : ")
 print(json.dumps(data3, indent=2))
