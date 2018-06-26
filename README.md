@@ -21,10 +21,14 @@ Endpoints interest are:
  Please ask KELLER AG to provide a valid parameters
 
 ##### Notes:
-DateTime format from the API are always in UTC
-Pressure values from the API are always in bar
-Temperature values from the API are always in °C
-It is not possible to delete measurement data with the API
+DateTime format from the API are always in UTC  
+
+Pressure values from the API are always in bar  
+
+Temperature values from the API are always in °C  
+
+It is not possible to delete measurement data with the API  
+
 If you want to try out the API with [Swagger](https://api.kolibricloud.ch/swagger/index.html?url=/swagger/v1/swagger.json) please us the dark green [Authorize] button and a valid bearer token. You can get a valid bearer token when logged in on www.kolibricloud.ch under [User Settings]
 The ```deviceId``` are the same numbers that can be seen in the URL of the WebApp when the device is selected: [https://www.kolibricloud.ch/devices/**1234**/](https://www.kolibricloud.ch/devices/1234/)
 
