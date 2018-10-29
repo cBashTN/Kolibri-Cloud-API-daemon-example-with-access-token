@@ -16,7 +16,7 @@ Endpoints interest are:
 + **urllib2**
 
  It is necessary to have a valid *ACCESS_TOKEN*
- Please ask KELLER AG (kolibrig@keller-druck.ch) to provide a valid *ACCESS_TOKEN* key
+ Please ask KELLER AG (kolibri@keller-druck.ch) to provide a valid *ACCESS_TOKEN* key
 
 ##### Notes:
 DateTime format from the API are always in UTC
@@ -39,4 +39,4 @@ If you plan run this as a server script to store measurement data from the KOLIB
 + It is possible that a request fails. To solve this error case please re-call the data later again. You might gather data from an overlapped time slot and exclude measurements that has been stored already.
 
 Please create github issues for feature wishes or problems 
-Or contact kolibrig@keller-druck.ch
+Or contact kolibri@keller-druck.ch
