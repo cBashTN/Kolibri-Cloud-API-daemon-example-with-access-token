@@ -6,8 +6,8 @@
 # - Python 2.7  (Untested with Python 3.x)                                   #
 # - urllib2                                                                  #
 #                                                                            #
-# It is necessary to have a valid  ACCESS_TOKEN                              #
-# Please ask KELLER to provide a valid parameters                            #  
+# It is necessary to have a valid  ACCESS_TOKEN.                             #
+# Please ask KELLER to provide a valid ACCESS_TOKEN!                         #  
 #                                                                            #  
 # DateTime format from the API are always in UTC                             #
 # Pressure values from the API are always in bar                             #
@@ -21,7 +21,8 @@ import urllib2
 from datetime import timedelta
 import datetime
 
-# parameters client specific
+
+# client specific access token
 ACCESS_TOKEN = "___modified___sVKKoibnUftMMkZlB9dFHFfWDoCDgu4wYSDvX3jXs16n+LJkpHcjDbdnObLVByQxn67yG/dczWMYrIjNd/s3qHyAAAAAMNB4dy+qNxTrW6TUVa/qk6/5esIKLuZbKG5D5eM34kpANDLOJzhcpBaOnZoNSvQgA==" # represents the user
 
 def turn_on_logging_of_imported_libraries():
@@ -47,7 +48,7 @@ def get_data(_endpoint, _access_token):
         html = response.read()
         json_obj = json.loads(html)
     except UnboundLocalError:
-        print("Could not find data from "+"\n")
+        print("Could not find data in "+_endpoint+"\n")
         json_obj = ""
     return json_obj
 
@@ -82,25 +83,25 @@ def get_measurementDefinitionId_LookUpTable():
         27: "SDI12 CH8",
         28: "SDI12 CH9",
         29: "SDI12 CH10",
-		30: "TOB1 (2)",
-		31: "TOB1 (3)",
-		32: "TOB1 (4)",
-		33: "TOB1 (5)",
-		34: "E",
-		35: "F",
-		36: "G",
-		37: "mH20 (PBaro)",
-		38: "mH20 (P1-P2)",
-		39: "mH20 (P1-P3)",
-		40: "mH20 (P1-P4)",
-		41: "mH20 (P1-P5)",
-		42: "Conductivity Tc (2)",
-		43: "Conductivity Tc (3)",
-		44: "T (Conductivity) (2)",
-		45: "T (Conductivity) (3)",
+        30: "TOB1 (2)",
+        31: "TOB1 (3)",
+        32: "TOB1 (4)",
+        33: "TOB1 (5)",
+        34: "E",
+        35: "F",
+        36: "G",
+        37: "mH20 (PBaro)",
+        38: "mH20 (P1-P2)",
+        39: "mH20 (P1-P3)",
+        40: "mH20 (P1-P4)",
+        41: "mH20 (P1-P5)",
+        42: "Conductivity Tc (2)",
+        43: "Conductivity Tc (3)",
+        44: "T (Conductivity) (2)",
+        45: "T (Conductivity) (3)",
         46: "P2 (2)",
-		47: "TOB2 (2)"
-        }
+        47: "TOB2 (2)"
+    }
     return measurementDefinitionId_LookUpTable
 
 def get_data_measurements_from_timespan(timespan_in_hours, measurementDefinitionId, deviceId, _access_token):
@@ -139,3 +140,13 @@ measurementDefinitionIds = get_measurementDefinitionId_LookUpTable()
 print("Measurements of " + measurementDefinitionIds[measurementDefinitionId]+" : ")
 print(json.dumps(data3, indent=2))
 print("----------------------------------------------------"+"\n")
+
+print("The list of the device ids and their channels: ")
+for each_device in data1['devices']:
+    endpoint = "/v1/Devices/"+str(each_device['id'])
+    data = get_data(endpoint, ACCESS_TOKEN)
+    all_channels_of_this_device = []
+    for each_channel in data['measurementDefinitions']:
+        all_channels_of_this_device.append(str(each_channel['id'])+":"+each_channel['name'])
+    all_channels_of_this_device = [str(all_channels_of_this_device[x]) for x in range(len(all_channels_of_this_device))] #just prettify the texts
+    print("#"+str(each_device['id'])+" has measurement channels: "+str(all_channels_of_this_device))
