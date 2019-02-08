@@ -16,15 +16,20 @@ Endpoints interest are:
 + **urllib2**
 
  It is necessary to have a valid *ACCESS_TOKEN*
- Please ask KELLER AG (kolibri@keller-druck.ch) to provide a valid *ACCESS_TOKEN* key
+ Please ask KELLER AG (kolibri@keller-druck.com) to provide a valid *ACCESS_TOKEN* key
 
 ##### Notes:
-DateTime format from the API are always in UTC
-Pressure values from the API are always in bar
-Temperature values from the API are always in °C
-It is not possible to delete measurement data with the API
+DateTime format from the API are always in **UTC** 
+Pressure values from the API are always in **bar**  
+Temperature values from the API are always in **°C**  
+It is not possible to delete measurement data with the API  
+
 If you want to try out the API with [Swagger](https://api.kolibricloud.ch/swagger/index.html?url=/swagger/v1/swagger.json) please us the dark green [Authorize] button and a valid bearer token. You can get a valid bearer token when logged in on www.kolibricloud.ch under [User Settings]
 The ```deviceId``` are the same numbers that can be seen in the URL of the WebApp when the device is selected: [https://www.kolibricloud.ch/devices/**1234**/](https://www.kolibricloud.ch/devices/1234/)
+
+If you want a permament *ACCESS_TOKEN*, please contact the KOLIBRI support team (kolibri@keller-druck.com).
+The provided access token must be the value with the key "userOid" in the header of every request.
+<img src="https://i.imgur.com/BtOYz6h.png" width="400">
 
 If you plan run this as a server script to store measurement data from the KOLIBRI Cloud API the following procedure is recommended:
 + Decide for a time span to gather date: eg. Every 24h
