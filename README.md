@@ -19,7 +19,7 @@ Endpoints interest are:
  Please ask KELLER AG (kolibri@keller-druck.com) to provide a valid *ACCESS_TOKEN* key
 
 ##### Notes:
-DateTime format from the API are always in **UTC** 
+DateTime format from the API are always in **UTC**  
 Pressure values from the API are always in **bar**  
 Temperature values from the API are always in **°C**  
 It is not possible to delete measurement data with the API  
@@ -44,4 +44,4 @@ If you plan run this as a server script to store measurement data from the KOLIB
 + It is possible that a request fails. To solve this error case please re-call the data later again. You might gather data from an overlapped time slot and exclude measurements that has been stored already.
 
 Please create github issues for feature wishes or problems 
-Or contact kolibri@keller-druck.ch
+Or contact kolibri@keller-druck.com
